@@ -44,7 +44,7 @@ class Transaction(models.Model):
         ('SELL', 'Sell'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    stock = models.ForeignKey(Stock, on_delete=models.CASCADE)
+    stock = models.ForeignKey(Stock, on_delete=models.CASCADE, null=True , blank=True)
     transaction_type = models.CharField(max_length=4, choices=TRANSACTION_TYPES)
     quantity = models.PositiveIntegerField()
     price_at_transaction = models.DecimalField(max_digits=10, decimal_places=2)
